@@ -12,13 +12,13 @@ import { useFormContext } from 'react-hook-form'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MdError } from 'react-icons/md'
 
-export const Input = ({ label, type, id, placeholder,  validation, name }) => {
-
-  const { register,
+export const Input = ({ label, type, id, placeholder, validation, name }) => {
+  const {
+    register,
     formState: { errors },
   } = useFormContext()
 
-  const inputError = findInputError(errors, label)
+  const inputError = findInputError(errors, name)
   const isInvalid = isFormInvalid(inputError)
 
   return (
@@ -47,7 +47,7 @@ export const Input = ({ label, type, id, placeholder,  validation, name }) => {
   )
 }
 
-const InputError = () => {
+const InputError = ({ message }) => {
   return (
     <motion.p
       className="flex items-center gap-1 px-2 font-semibold text-red-500 bg-red-100 rounded-md"

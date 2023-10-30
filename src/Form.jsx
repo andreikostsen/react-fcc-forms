@@ -18,7 +18,6 @@ import {
 import { useState } from 'react'
 import { GrMail } from 'react-icons/gr'
 import { BsFillCheckSquareFill } from 'react-icons/bs'
-
 export const Form = () => {
   const methods = useForm()
 
@@ -31,6 +30,7 @@ export const Form = () => {
       <form
         onSubmit={e => e.preventDefault()}
         noValidate
+        autoComplete="off"
         className="container"
       >
         <div className="grid gap-5 md:grid-cols-2">
